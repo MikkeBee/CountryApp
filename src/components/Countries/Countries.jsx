@@ -9,6 +9,7 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  // const [results, setResults] = useState([]);
 
   useEffect(() => {
     axios
@@ -23,15 +24,25 @@ const Countries = () => {
       });
   }, []);
 
+  // const searchHandler = (e) => {
+  //   setResults(
+  //     countries.filter((country) => {
+  //       return country.name.common
+  //         .toLowerCase()
+  //         .includes(e.target.value.toLowerCase());
+  //     })
+  //   );
+  // };
+
+  // results.length === 0 ? countries : results
+
   const searchHandler = (e) => {
-    setSearch(
-      countries.filter((country) => {
-        return country.name.common
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase());
-      })
-    );
+    setSearch(e.target.value.toLowerCase());
   };
+
+  const resultsB = countries.filter((country) => {
+    return country.name.common.toLowerCase().includes(search);
+  });
 
   if (isLoading) {
     return (
@@ -43,7 +54,7 @@ const Countries = () => {
     return (
       <div className={classes.gallery}>
         <Search searchHandler={searchHandler} />
-        <Card countries={countries} />
+        <Card results={resultsB} />
       </div>
     );
   }

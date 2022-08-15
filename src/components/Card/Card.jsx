@@ -1,7 +1,8 @@
 import React from "react";
 import classes from "./card.module.css";
+import { Link } from "react-router-dom";
 
-const Card = ({ countries }) => {
+const Card = ({ results }) => {
   const formattedNumber = (population) => {
     return new Intl.NumberFormat("en-GB", {
       notation: "compact",
@@ -11,35 +12,36 @@ const Card = ({ countries }) => {
 
   return (
     <section className={classes.countryGallery}>
-      {countries.map((country) => (
-        <div className={classes.countryCard} key={country.name.common}>
-          <img className={classes.flag} src={country.flags[1]} />
-          <section className={classes.cardTitle}>
-            <h3>{country.name.common}</h3>
-            <h5>{country.name.official}</h5>
-          </section>
-          <section className={classes.cardInfo}>
-            <div className={classes.infoColumn}>
-              <p>Languages</p>
-              {Object.values(country.languages || {}).map((value, i) => (
-                <span key={i}>{(i ? ", " : "") + value}</span>
-              ))}
+      {results.map((country) => (
+        <Link to={`/countries/${country.name.common}`}>
+          <div className={classes.countryCard} key={country.name.common}>
+            <img className={classes.flag} src={country.flags[1]} />
+            <section className={classes.cardTitle}>
+              <h3>{country.name.common}</h3>
+              <h5>{country.name.official}</h5>
+            </section>
+            <section className={classes.cardInfo}>
+              <div className={classes.infoColumn}>
+                <p>Languages</p>
+                {Object.values(country.languages || {}).map((value, i) => (
+                  <span key={i}>{(i ? ", " : "") + value}</span>
+                ))}
 
-              <p></p>
-            </div>
-            <div className={classes.infoColumn}>
-              <p>Currencies</p>
-              {/* {console.log(Object.values(country.currencies))} */}
-              {Object.values(country.currencies || {}).map((value, i) => (
-                <span key={i}>{(i ? ", " : "") + value.name}</span>
-              ))}
-            </div>
-            <div className={classes.infoColumn}>
-              <p>Population</p>
-              <p>{formattedNumber(country.population)}</p>
-            </div>
-          </section>
-        </div>
+                <p></p>
+              </div>
+              <div className={classes.infoColumn}>
+                <p>Currencies</p>
+                {Object.values(country.currencies || {}).map((value, i) => (
+                  <span key={i}>{(i ? ", " : "") + value.name}</span>
+                ))}
+              </div>
+              <div className={classes.infoColumn}>
+                <p>Population</p>
+                <p>{formattedNumber(country.population)}</p>
+              </div>
+            </section>
+          </div>
+        </Link>
       ))}
     </section>
   );

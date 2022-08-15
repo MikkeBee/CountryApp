@@ -1,3 +1,10 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+}
+
 .loadingMessage {
   color: white;
   font-size: 3rem;
