@@ -2,6 +2,13 @@ import React from "react";
 import classes from "./card.module.css";
 
 const Card = ({ countries }) => {
+  const formattedNumber = (population) => {
+    return new Intl.NumberFormat("en-GB", {
+      notation: "compact",
+      compactDisplay: "short",
+    }).format(population);
+  };
+
   return (
     <section className={classes.countryGallery}>
       {countries.map((country) => (
@@ -22,13 +29,14 @@ const Card = ({ countries }) => {
             </div>
             <div className={classes.infoColumn}>
               <p>Currencies</p>
-              {Object.values(country.curencies || {}).map((value, i) => (
-                <span key={i}>{(i ? ", " : "") + value}</span>
+              {/* {console.log(Object.values(country.currencies))} */}
+              {Object.values(country.currencies || {}).map((value, i) => (
+                <span key={i}>{(i ? ", " : "") + value.name}</span>
               ))}
             </div>
             <div className={classes.infoColumn}>
               <p>Population</p>
-              <p>{country.population}</p>
+              <p>{formattedNumber(country.population)}</p>
             </div>
           </section>
         </div>

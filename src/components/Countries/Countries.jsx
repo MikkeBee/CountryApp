@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import classes from "./countries.module.css";
 import Card from "../Card/Card";
+import Search from "../Search/Search";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -17,10 +18,20 @@ const Countries = () => {
       })
       .then((res) => {
         setCountries(res.data);
-        console.log(countries);
+        console.log(res.data);
         setLoading(false);
       });
   }, []);
+
+  const searchHandler = (e) => {
+    setSearch(
+      countries.filter((country) => {
+        return country.name.common
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      })
+    );
+  };
 
   if (isLoading) {
     return (
@@ -31,6 +42,7 @@ const Countries = () => {
   } else {
     return (
       <div className={classes.gallery}>
+        <Search searchHandler={searchHandler} />
         <Card countries={countries} />
       </div>
     );
