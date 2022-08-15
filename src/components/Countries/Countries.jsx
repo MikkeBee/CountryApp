@@ -18,14 +18,23 @@ const Countries = () => {
       .then((res) => {
         setCountries(res.data);
         console.log(countries);
+        setLoading(false);
       });
   }, []);
 
-  return (
-    <div className={classes.gallery}>
-      <Card countries={countries} />
-    </div>
-  );
+  if (isLoading) {
+    return (
+      <div className={classes.messageBlock}>
+        <p className={classes.loadingMessage}>Loading...</p>
+      </div>
+    );
+  } else {
+    return (
+      <div className={classes.gallery}>
+        <Card countries={countries} />
+      </div>
+    );
+  }
 };
 
 export default Countries;
