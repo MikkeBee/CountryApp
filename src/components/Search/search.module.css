@@ -1,0 +1,10 @@
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBar {
+  height: 1rem;
+  width: 3rem;
+}
