@@ -1,4 +1,9 @@
 .home {
   color: white;
   display: flex;
+  flex-direction: column;
+}
+
+.home p {
+  font-size: 1.5rem;
 }
