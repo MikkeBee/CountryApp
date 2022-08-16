@@ -9,10 +9,14 @@ const Country = ({ countries }) => {
 
   return (
     <div className={classes.infoCard}>
-      <h1>{country.name.common}</h1>
-      <h2>{country.name.official}</h2>
-      <h3>Capital: {country.capital}</h3>
-      <Weather country={country} />
+      <div className={classes.countryInfo}>
+        <h1>{country.name.common}</h1>
+        <h2>{country.name.official}</h2>
+        <h3>Capital: {country.capital}</h3>
+
+        <Weather country={country} />
+      </div>
+      <img className={classes.flag} src={country.flags[1]} />
     </div>
   );
 };

@@ -2,6 +2,17 @@
   background-color: rgb(232, 211, 185);
   border-radius: 5px;
   width: 90vw;
-  padding: 1rem;
+  padding: 2rem 1rem;
   box-shadow: 0 0 5px black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.countryInfo {
+  margin: 0 4rem 0 0;
+}
+
+.flag {
+  margin: 0 0 0 4rem;
+  height: 100%;
 }
