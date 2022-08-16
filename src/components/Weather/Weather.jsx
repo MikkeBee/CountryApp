@@ -8,15 +8,12 @@ const Weather = ({ country }) => {
 
   const api_key = process.env.REACT_APP_API_KEY;
 
-  console.log("hey", process.env);
-
   useEffect(() => {
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=${api_key}&units=metric`
       )
       .then((res) => {
-        console.log(res);
         setWeather(res.data);
       });
   }, [country]);
@@ -25,14 +22,15 @@ const Weather = ({ country }) => {
     return (
       <div className={classes.weatherArea}>
         <h3>Forecast for {country.capital}</h3>
-        <p>Temperature is currently {weather.main.temp} °C </p>
+        <p>
+          Right now it is {weather.main.temp} °C, {weather.weather[0].main},
+          wind {weather.wind.speed} m/s
+        </p>
         <img
           className={classes.weatherImage}
           src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         />
-        <p>
-          {weather.weather[0].main}, wind {weather.wind.speed} m/s
-        </p>
+        <p></p>
       </div>
     );
   }
