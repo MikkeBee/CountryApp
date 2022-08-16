@@ -13,6 +13,8 @@ const Country = ({ countries }) => {
         <h1>{country.name.common}</h1>
         <h2>{country.name.official}</h2>
         <h3>Capital: {country.capital}</h3>
+        <h3>Continent: {country.continents}</h3>
+        <h3>Region: {country.subregion}</h3>
 
         <Weather country={country} />
       </div>
