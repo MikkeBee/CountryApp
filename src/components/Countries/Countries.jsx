@@ -1,28 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import classes from "./countries.module.css";
 import Card from "../Card/Card";
 import Search from "../Search/Search";
+import { useState } from "react";
 
-const Countries = () => {
-  const [countries, setCountries] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+const Countries = ({ countries, isLoading }) => {
   const [search, setSearch] = useState("");
   // const [results, setResults] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://restcountries.com/v3/all")
-      .catch((error) => {
-        console.log(error);
-      })
-      .then((res) => {
-        setCountries(res.data);
-        console.log(res.data);
-        setLoading(false);
-      });
-  }, []);
 
   // const searchHandler = (e) => {
   //   setResults(
