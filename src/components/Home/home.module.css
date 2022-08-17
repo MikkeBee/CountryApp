@@ -8,8 +8,33 @@
   text-shadow: 1px 1px 2px black;
 }
 
+.home a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+.home a:hover {
+  transform: scale(110%);
+}
+
 .bodyText {
   font-size: 1.5rem;
   width: 55%;
   text-shadow: 1px 1px 2px black;
+}
+
+.letsGo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.letsGo p {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
 }
