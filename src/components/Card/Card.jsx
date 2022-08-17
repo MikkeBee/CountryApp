@@ -26,8 +26,6 @@ const Card = ({ results }) => {
                 {Object.values(country.languages || {}).map((value, i) => (
                   <span key={i}>{(i ? ", " : "") + value}</span>
                 ))}
-
-                <p></p>
               </div>
               <div className={classes.infoColumn}>
                 <p>Currencies</p>

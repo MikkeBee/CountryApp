@@ -2,10 +2,12 @@ import React from "react";
 import classes from "./countries.module.css";
 import Card from "../Card/Card";
 import Search from "../Search/Search";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Countries = ({ countries, isLoading }) => {
   const [search, setSearch] = useState("");
+  const [showButton, setShowButton] = useState(false);
+
   // const [results, setResults] = useState([]);
 
   // const searchHandler = (e) => {
@@ -19,6 +21,23 @@ const Countries = ({ countries, isLoading }) => {
   // };
 
   // results.length === 0 ? countries : results
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 200) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const searchHandler = (e) => {
     setSearch(e.target.value.toLowerCase());
@@ -39,6 +58,11 @@ const Countries = ({ countries, isLoading }) => {
       <div className={classes.gallery}>
         <Search searchHandler={searchHandler} />
         <Card results={resultsB} />
+        {showButton && (
+          <button onClick={scrollToTop} className={classes.upWeGo}>
+            <i class="fa-solid fa-plane-up"></i>
+          </button>
+        )}
       </div>
     );
   }

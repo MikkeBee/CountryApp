@@ -6,7 +6,7 @@
 .navBar {
   color: white;
   font-size: 1.5rem;
-  text-shadow: 0 0 2px rgb(42, 42, 42);
+  text-shadow: 1px 1px 2px black;
 }
 
 .navBar a {
