@@ -3,6 +3,7 @@ import classes from "./countries.module.css";
 import Card from "../Card/Card";
 import Search from "../Search/Search";
 import { useState, useEffect } from "react";
+import Spinner from "react-bootstrap/Spinner";
 
 const Countries = ({ countries, isLoading }) => {
   const [search, setSearch] = useState("");
@@ -50,6 +51,7 @@ const Countries = ({ countries, isLoading }) => {
   if (isLoading) {
     return (
       <div className={classes.messageBlock}>
+        <Spinner animation="border" variant="light" />
         <p className={classes.loadingMessage}>Loading...</p>
       </div>
     );
