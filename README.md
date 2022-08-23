@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Made for a React course in school. At the moment it is not hosted anywhere.
 
-Made with: Bootstrap, react-router, axios
+Made with: Bootstrap, react-router, axios, Emotion
 
 ### `npm start`
 
