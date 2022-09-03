@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import React from "react";
 import classes from "./country.module.css";
 import Weather from "../Weather/Weather";
 import { useParams } from "react-router-dom";
+import { css } from "@emotion/react";
 
 const Country = ({ countries }) => {
   const { name } = useParams();
@@ -15,8 +17,25 @@ const Country = ({ countries }) => {
   };
 
   return (
-    <div className={classes.infoCard}>
-      <div className={classes.countryInfo}>
+    <div
+      className={classes.infoCard}
+      css={css`
+        background-color: rgb(232, 211, 185);
+        border-radius: 5px;
+        width: 90vw;
+        padding: 2rem 1rem;
+        box-shadow: 0 0 5px black;
+        display: flex;
+        justify-content: space-around;
+      `}
+    >
+      <div
+        className={classes.countryInfo}
+        css={css`
+          margin: 0 4rem 0 0;
+          width: 60%;
+        `}
+      >
         <h1>{country.name.common}</h1>
         <h2>{country.name.official}</h2>
         <h3>Capital: {country.capital}</h3>
@@ -38,7 +57,16 @@ const Country = ({ countries }) => {
 
         <Weather country={country} />
       </div>
-      <img className={classes.flag} src={country.flags[1]} />
+      <img
+        className={classes.flag}
+        css={css`
+          margin: 0 0 0 4rem;
+          height: 100%;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+            rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        `}
+        src={country.flags[1]}
+      />
     </div>
   );
 };
