@@ -14,7 +14,10 @@ const Card = ({ results }) => {
   return (
     <section className={classes.countryGallery}>
       {results.map((country) => (
-        <Link to={`/countries/${country.name.common}`}>
+        <Link
+          key={country.name.common}
+          to={`/countries/${country.name.common}`}
+        >
           <div className={classes.countryCard} key={country.name.common}>
             <img className={classes.flag} src={country.flags[1]} />
             <section className={classes.cardTitle}>

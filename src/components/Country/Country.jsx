@@ -1,13 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+
 import classes from "./country.module.css";
 import Weather from "../Weather/Weather";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { css } from "@emotion/react";
 
 const Country = ({ countries }) => {
   const { name } = useParams();
-  const country = countries.find((country) => country.name.common === name);
+  const countriesList = useSelector((state) => state.countries.countries);
+  const country = countriesList.find((country) => country.name.common === name);
 
   const formattedNumber = (population) => {
     return new Intl.NumberFormat("en-GB", {

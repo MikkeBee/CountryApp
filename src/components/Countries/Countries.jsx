@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { search } from "../../features/countries/countrySlice";
-import { useDispatch } from "react-redux";
+import { initializeCountries } from "../../features/countries/countrySlice";
 
 import Card from "../Card/Card";
 import Search from "../Search/Search";
@@ -9,8 +10,20 @@ import Spinner from "react-bootstrap/Spinner";
 
 import classes from "./countries.module.css";
 
-const Countries = ({ countries, isLoading }) => {
+const Countries = () => {
+  const dispatch = useDispatch();
+  const searchInput = useSelector((state) => state.countries.search);
+  const countriesList = useSelector((state) => state.countries.countries);
+  const isLoading = useSelector((state) => state.countries.isLoading);
   const [showButton, setShowButton] = useState(false);
+
+  const searchHandler = (e) => {
+    dispatch(search(e.target.value.toLowerCase()));
+  };
+
+  useEffect(() => {
+    dispatch(initializeCountries());
+  }, [dispatch]);
 
   // const [results, setResults] = useState([]);
 
@@ -43,19 +56,16 @@ const Countries = ({ countries, isLoading }) => {
     });
   };
 
-  const searchHandler = (e) => {
-    setSearch(e.target.value.toLowerCase());
-  };
-
-  const resultsB = countries.filter((country) => {
-    return country.name.common.toLowerCase().includes(search);
+  const resultsB = countriesList.filter((country) => {
+    return country.name.common.toLowerCase().includes(searchInput);
   });
 
   if (isLoading) {
     return (
       <div className={classes.messageBlock}>
-        <Spinner animation="border" variant="light" />
-        <p className={classes.loadingMessage}>Loading...</p>
+        <Spinner animation="border" variant="light">
+          <p className={classes.loadingMessage}>Loading...</p>
+        </Spinner>
       </div>
     );
   } else {
