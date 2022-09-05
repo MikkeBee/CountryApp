@@ -1,6 +1,7 @@
 import React from "react";
-import classes from "./card.module.css";
 import { Link } from "react-router-dom";
+
+import classes from "./card.module.css";
 
 const Card = ({ results }) => {
   const formattedNumber = (population) => {

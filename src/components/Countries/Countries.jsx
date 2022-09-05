@@ -1,12 +1,15 @@
 import React from "react";
-import classes from "./countries.module.css";
+import { useState, useEffect } from "react";
+import { search } from "../../features/countries/countrySlice";
+import { useDispatch } from "react-redux";
+
 import Card from "../Card/Card";
 import Search from "../Search/Search";
-import { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 
+import classes from "./countries.module.css";
+
 const Countries = ({ countries, isLoading }) => {
-  const [search, setSearch] = useState("");
   const [showButton, setShowButton] = useState(false);
 
   // const [results, setResults] = useState([]);
