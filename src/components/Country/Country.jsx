@@ -1,10 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
-import classes from "./country.module.css";
-import Weather from "../Weather/Weather";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { css } from "@emotion/react";
+
+import Weather from "../Weather/Weather";
+
+import classes from "./country.module.css";
 
 const Country = ({ countries }) => {
   const { name } = useParams();
