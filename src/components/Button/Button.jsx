@@ -1,11 +1,11 @@
 import React from "react";
 import classes from "./button.module.css";
 
-const Button = ({ details }) => {
+const Button = ({ children, onClick }) => {
   return (
-    <>
-      <button className={classes.checkBox}>{details}</button>
-    </>
+    <button onClick={onClick} className={classes.checkBox}>
+      {children}
+    </button>
   );
 };
 

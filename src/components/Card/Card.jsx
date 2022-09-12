@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setFaves } from "../../features/countries/countrySlice";
+import { setFaves, removeFave } from "../../features/countries/cartSlice";
 
 import classes from "./card.module.css";
 
 const Card = ({ results }) => {
   const dispatch = useDispatch();
+  const favList = useSelector((state) => state.favourites);
 
   const formattedNumber = (population) => {
     return new Intl.NumberFormat("en-GB", {
@@ -22,12 +23,24 @@ const Card = ({ results }) => {
         <div className={classes.countryCard} key={country.name.common}>
           <img className={classes.flag} src={country.flags[1]} />
           <span className={classes.checkBox}>
-            <Button
-              onClick={() => {
-                dispatch(setFaves(country));
-              }}
-              details={<i className="fa-regular fa-square fa-1x"></i>}
-            ></Button>
+            {favList.includes(country) ? (
+              <Button
+                onClick={() => {
+                  console.log(country);
+                  dispatch(removeFave(country));
+                }}
+              >
+                <i className="fa-solid fa-star fa-xl"></i>
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  dispatch(setFaves(country));
+                }}
+              >
+                <i className="fa-regular fa-star fa-xl"></i>
+              </Button>
+            )}
           </span>
           <section className={classes.cardTitle}>
             <Link

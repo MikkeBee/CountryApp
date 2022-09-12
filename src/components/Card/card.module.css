@@ -32,8 +32,12 @@
 
 .checkBox {
   position: absolute;
-  top: 1.3rem;
+  top: 1.2rem;
   right: 23.7rem;
+}
+
+.checkBox i {
+  color: rgb(4, 142, 4);
 }
 
 .flag {
