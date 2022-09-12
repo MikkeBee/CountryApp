@@ -45,6 +45,19 @@ const Header = () => {
         >
           Countries
         </Link>
+        <Link
+          css={css`
+            color: white;
+            text-decoration: none;
+            padding-right: 1rem;
+            &:hover {
+              color: rgb(232, 211, 185);
+            }
+          `}
+          to="favourites"
+        >
+          Favourites
+        </Link>
       </div>
     </header>
   );

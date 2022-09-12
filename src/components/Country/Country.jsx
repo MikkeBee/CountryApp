@@ -8,7 +8,7 @@ import Weather from "../Weather/Weather";
 
 import classes from "./country.module.css";
 
-const Country = ({ countries }) => {
+const Country = () => {
   const { name } = useParams();
   const countriesList = useSelector((state) => state.countries.countries);
   const country = countriesList.find((country) => country.name.common === name);

@@ -14,12 +14,11 @@
 .countryCard {
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
   background-color: rgb(232, 211, 185);
-  height: 13rem;
-  width: 22rem;
+  height: 15rem;
+  width: 24rem;
   margin: 1rem;
   padding: 1rem;
   text-align: center;
@@ -27,30 +26,54 @@
   box-shadow: 0 0 5px black;
 }
 
+.countryCard a:hover {
+  color: blue;
+}
+
+.checkBox {
+  position: absolute;
+  top: 1.3rem;
+  right: 23.7rem;
+}
+
 .flag {
-  max-width: 4.5rem;
+  max-width: 5rem;
   box-shadow: 0 0 5px black;
   position: absolute;
   top: -0.7rem;
   right: -0.3rem;
 }
 
-.cardTitle h3 {
-  margin-bottom: 0.5rem;
+.cardTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.cardTitle h5 {
+.cardTitle h2 {
+  margin-bottom: -0.5rem;
+}
+
+.cardTitle h4 {
   margin-bottom: 0.5rem;
 }
 
 .cardInfo {
   display: flex;
   justify-content: space-evenly;
-  flex-direction: row;
-  overflow: auto;
+  flex-direction: column;
 }
 
-.infoColumn {
-  margin: 0.5rem;
-  width: 6rem;
+.infoRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: -0.9rem;
+  overflow: hidden;
+  width: 22rem;
+}
+
+.seeMore {
+  margin-top: 0.5rem;
 }

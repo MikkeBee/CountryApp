@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { search } from "../../features/countries/countrySlice";
-import { initializeCountries } from "../../features/countries/countrySlice";
+import { search } from "../../features/countries/countrySlice"; //imports search
+import { initializeCountries } from "../../features/countries/countrySlice"; //imports countries and isLoading
 
 import Card from "../Card/Card";
 import Search from "../Search/Search";
@@ -75,7 +75,7 @@ const Countries = () => {
         <Card results={resultsB} />
         {showButton && (
           <button onClick={scrollToTop} className={classes.upWeGo}>
-            <i class="fa-solid fa-plane-up"></i>
+            <i className="fa-solid fa-plane-up"></i>
           </button>
         )}
       </div>

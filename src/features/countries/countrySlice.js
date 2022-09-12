@@ -29,6 +29,7 @@ export const initializeCountries = () => {
   };
 };
 
-export const { getCountries, isLoading, search } = countrySlice.actions;
+export const { getCountries, isLoading, search, setFaves } =
+  countrySlice.actions;
 
 export default countrySlice.reducer;

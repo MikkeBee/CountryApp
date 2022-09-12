@@ -14,7 +14,7 @@ const Home = () => {
       <div className={classes.letsGo}>
         <Link to={`/countries`}>
           <p>Let's go! </p>
-          <i class="fa-solid fa-plane-departure fa-4x"></i>
+          <i className="fa-solid fa-plane-departure fa-4x"></i>
         </Link>
       </div>
     </div>
