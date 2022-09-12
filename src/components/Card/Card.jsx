@@ -23,10 +23,11 @@ const Card = ({ results }) => {
         <div className={classes.countryCard} key={country.name.common}>
           <img className={classes.flag} src={country.flags[1]} />
           <span className={classes.checkBox}>
-            {favList.includes(country) ? (
+            {favList.some(
+              (item) => item.name.common === country.name.common
+            ) ? (
               <Button
                 onClick={() => {
-                  console.log(country);
                   dispatch(removeFave(country));
                 }}
               >

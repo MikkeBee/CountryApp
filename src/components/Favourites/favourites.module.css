@@ -1,0 +1,29 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+}
+
+.loadingMessage {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+.upWeGo {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.upWeGo:hover {
+  color: rgb(232, 211, 185);
+  text-shadow: 0 0 2px whitesmoke;
+}

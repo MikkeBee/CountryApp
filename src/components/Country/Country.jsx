@@ -1,16 +1,20 @@
 /** @jsxImportSource @emotion/react */
 
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setFaves, removeFave } from "../../features/countries/cartSlice";
 import { css } from "@emotion/react";
 
 import Weather from "../Weather/Weather";
+import Button from "../Button/Button";
 
 import classes from "./country.module.css";
 
 const Country = () => {
   const { name } = useParams();
+  const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
+  const favList = useSelector((state) => state.favourites);
   const country = countriesList.find((country) => country.name.common === name);
 
   const formattedNumber = (population) => {
@@ -40,7 +44,41 @@ const Country = () => {
           width: 60%;
         `}
       >
-        <h1>{country.name.common}</h1>
+        <h1
+          className={classes.countryHeader}
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+        >
+          {country.name.common}{" "}
+          <span
+            className={classes.checkBox}
+            css={css`
+              display: flex;
+              align-items: center;
+            `}
+          >
+            {favList.includes(country) ? (
+              <Button
+                onClick={() => {
+                  console.log(country);
+                  dispatch(removeFave(country));
+                }}
+              >
+                <i className="fa-solid fa-star fa-xl"></i>
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  dispatch(setFaves(country));
+                }}
+              >
+                <i className="fa-regular fa-star fa-xl"></i>
+              </Button>
+            )}
+          </span>
+        </h1>
         <h2>{country.name.official}</h2>
         <h3>Capital: {country.capital}</h3>
         <p>Continent: {country.continents}</p>
