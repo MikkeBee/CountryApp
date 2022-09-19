@@ -2,7 +2,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
   name: "favourites",
-  initialState: [],
+  initialState: JSON.parse(localStorage.getItem("favouritesData")) || [],
   reducers: {
     setFaves(state, action) {
       state.push(action.payload);
@@ -14,6 +14,12 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+export const updateFavs = (data) => {
+  return async () => {
+    localStorage.setItem("favouritesData", JSON.stringify(data));
+  };
+};
 
 export const { setFaves, removeFave } = cartSlice.actions;
 

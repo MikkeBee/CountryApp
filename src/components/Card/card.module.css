@@ -77,6 +77,7 @@
   margin-bottom: -0.9rem;
   overflow: hidden;
   width: 22rem;
+  white-space: nowrap;
 }
 
 .seeMore {

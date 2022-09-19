@@ -7,6 +7,7 @@ import { css } from "@emotion/react";
 
 import Weather from "../Weather/Weather";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 import classes from "./country.module.css";
 
@@ -98,6 +99,9 @@ const Country = () => {
         <p>Population: {formattedNumber(country.population)}</p>
 
         <Weather country={country} />
+        <Link to={`/countries/`}>
+          <button className={classes.backToCountries}>Back to countries</button>
+        </Link>
       </div>
       <img
         className={classes.flag}

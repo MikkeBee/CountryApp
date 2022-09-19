@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "../../features/countries/countrySlice"; //imports search
-import { initializeCountries } from "../../features/countries/countrySlice"; //imports countries and isLoading
 
 import Search from "../Search/Search";
 import Card from "../Card/Card";
@@ -16,6 +15,7 @@ const Favourites = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
+    dispatch(search(""));
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 200) {
         setShowButton(true);

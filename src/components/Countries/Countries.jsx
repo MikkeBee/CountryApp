@@ -17,13 +17,14 @@ const Countries = () => {
   const isLoading = useSelector((state) => state.countries.isLoading);
   const [showButton, setShowButton] = useState(false);
 
+  useEffect(() => {
+    dispatch(initializeCountries());
+    dispatch(search(""));
+  }, [dispatch]);
+
   const searchHandler = (e) => {
     dispatch(search(e.target.value.toLowerCase()));
   };
-
-  useEffect(() => {
-    dispatch(initializeCountries());
-  }, [dispatch]);
 
   // const [results, setResults] = useState([]);
 

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setFaves, removeFave } from "../../features/countries/cartSlice";
+import { updateFavs } from "../../features/countries/cartSlice";
 
 import classes from "./card.module.css";
 
 const Card = ({ results }) => {
   const dispatch = useDispatch();
   const favList = useSelector((state) => state.favourites);
+
+  useEffect(() => {
+    dispatch(updateFavs(favList));
+  }, [dispatch, favList]);
 
   const formattedNumber = (population) => {
     return new Intl.NumberFormat("en-GB", {

@@ -24,3 +24,17 @@
   color: rgb(4, 142, 4);
   text-shadow: 0 0 5px rgb(152, 152, 152);
 }
+
+.backToCountries {
+  border-radius: 5px;
+  background-color: rgb(119, 49, 49);
+  color: whitesmoke;
+  border: 1px rgb(49, 21, 21);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.backToCountries:active {
+  background-color: rgb(83, 36, 36);
+  box-shadow: 0 2px rgb(56, 56, 56);
+  transform: translateY(2px);
+}
