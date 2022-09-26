@@ -8,6 +8,8 @@ Made for a React course in school. At the moment it is not hosted anywhere.
 
 Made with: Bootstrap, react-router, axios, Emotion
 
+You can visit the live site at https://mikke-country-app.netlify.app/
+
 ### `npm start`
 
 Runs the app in the development mode.\
