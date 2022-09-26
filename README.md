@@ -10,6 +10,8 @@ Made with: Bootstrap, react-router, axios, Emotion
 
 You can visit the live site at https://mikke-country-app.netlify.app/
 
+Added with a little easter egg hidden in the build. But it's okay, as this is only a school project, and the main goal is to have this deployed.
+
 ### `npm start`
 
 Runs the app in the development mode.\
