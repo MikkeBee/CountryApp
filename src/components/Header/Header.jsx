@@ -14,7 +14,6 @@ const Header = () => {
       `}
     >
       <div
-        className={classes.navBar}
         css={css`
           color: white;
           font-size: 1.5rem;
