@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import classes from "./header.module.css";
 import { css } from "@emotion/react";
 
 const Header = () => {

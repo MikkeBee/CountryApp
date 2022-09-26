@@ -63,7 +63,6 @@ const Country = () => {
             {favList.includes(country) ? (
               <Button
                 onClick={() => {
-                  console.log(country);
                   dispatch(removeFave(country));
                 }}
               >

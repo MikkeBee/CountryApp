@@ -9,22 +9,6 @@ import Favourites from "./components/Favourites/Favourites";
 import "./index.css";
 
 const App = () => {
-  // const [countries, setCountries] = useState([]);
-  // const [isLoading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("https://restcountries.com/v3/all")
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  //     .then((res) => {
-  //       setCountries(res.data);
-  //       console.log(res.data);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
   return (
     <BrowserRouter>
       <Routes>

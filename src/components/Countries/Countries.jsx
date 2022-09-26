@@ -26,20 +26,6 @@ const Countries = () => {
     dispatch(search(e.target.value.toLowerCase()));
   };
 
-  // const [results, setResults] = useState([]);
-
-  // const searchHandler = (e) => {
-  //   setResults(
-  //     countries.filter((country) => {
-  //       return country.name.common
-  //         .toLowerCase()
-  //         .includes(e.target.value.toLowerCase());
-  //     })
-  //   );
-  // };
-
-  // results.length === 0 ? countries : results
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 200) {
