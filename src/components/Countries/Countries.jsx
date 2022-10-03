@@ -6,7 +6,6 @@ import { initializeCountries } from "../../features/countries/countrySlice"; //i
 
 import Card from "../Card/Card";
 import Search from "../Search/Search";
-import Spinner from "react-bootstrap/Spinner";
 
 import classes from "./countries.module.css";
 
@@ -50,9 +49,7 @@ const Countries = () => {
   if (isLoading) {
     return (
       <div className={classes.messageBlock}>
-        <Spinner animation="border" variant="light">
-          <p className={classes.loadingMessage}>Loading...</p>
-        </Spinner>
+        <p className={classes.loadingMessage}>Loading...</p>
       </div>
     );
   } else {
